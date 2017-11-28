@@ -1,19 +1,19 @@
 #!/bin/bash
 
-if [ -d "/cases/$1" ]; then
-  echo "$(hostname).$(domainname)   /cases/$1"
-  ls -l /cases/$1
+if [ -d "/$1" ]; then
+  echo "$(hostname).$(domainname)   /$1"
+  ls -l /$1
   printf "\n"
-  cd /cases/$1
+  cd /$1
 else
-  echo "/cases/$1 does not exist"
+  echo "/$1 does not exist"
   echo "create directory? y/n"
   read copyflag
   if [ "$copyflag" = "y" ]
   then
-    mkdir -m 777 /cases/$1
-    echo "$(hostname).$(domainname):  /cases/$1"
-    ls -l /cases/$1
+    mkdir -m 777 /$1
+    echo "$(hostname).$(domainname):  /$1"
+    ls -l /$1
     printf "\n"
   fi
 fi
