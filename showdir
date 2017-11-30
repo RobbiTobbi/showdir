@@ -1,27 +1,24 @@
 #!/bin/bash
-if [ -z "$1" ] then
+if [ -z "$1" ]; then
   echo "Usage: showdir <string>"
   echo "will list exiting directory or create one"
 else
 
-  if [ -d "/$1" ]; then
-    echo "$(hostname).$(domainname)   /$1"
-    ls -l /$1
+  if [ -d "$1" ]; then
+    echo "$(hostname).$(domainname)   $1"
+    ls -l $1
     printf "\n"
-    cd /$1
   else
-    echo "/$1 does not exist"
+    echo "$1 does not exist"
     echo "create directory? y/n"
     read copyflag
-    if [ "$copyflag" = "y" ] 
-      then
-      mkdir -m 777 /$1
-      echo "$(hostname).$(domainname):  /$1"
-      ls -l /$1
+    if [ "$copyflag" = "y" ]; then
+      mkdir -m 777 $1
+      echo "$(hostname).$(domainname):  $1"
+      ls -l $1
       printf "\n"
     else
-      if [ "$copyflag" != "n" ] 
-        then
+      if [ "$copyflag" != "n" ]; then
         echo "invalid input. No directory created"
       fi
     fi
